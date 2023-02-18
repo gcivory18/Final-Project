@@ -1,0 +1,19 @@
+@import "../../style.scss";
+
+// style for the home page which pulls from the global style sheet
+// allows for adjustments for mobile and tablet
+
+.home{
+    @include themify($themes) {
+      padding: 20px 70px;
+      background-color: themed("bgSoft");
+  
+      @include mobile {
+        padding: 10px;
+      }
+  
+      @include tablet{
+        padding: 20px;
+      }
+    }
+   }

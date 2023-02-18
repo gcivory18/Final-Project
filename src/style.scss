@@ -1,0 +1,59 @@
+// global style for my entite social media app
+// allows for adjustments for mobile and tablet
+// changes the style from light to dark mode 
+
+$themes:(
+    light:(
+    textColor: #000,
+    bg: white,
+    logo: darkblue,
+    bgSoft: #f6f3f3,
+    textColorSoft: #555,
+    border: lightgray, 
+    ),
+    dark: (
+        textColor: whitesmoke,
+        bg: #222,
+        logo: white,
+        bgSoft: #333,
+        textColorSoft: lightgray,
+        border: #444,
+    ),
+);
+
+// this will change the child style when changing from light to dark mode and vice versa
+@mixin themify($themes) {
+    @each $theme, $map in $themes {
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), "#{$key}");
+          $theme-map: map-merge(
+            $theme-map,
+            (
+              $key: $value,
+            )
+          ) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+  
+  // media query so that the app will adjust to mobile phones and tablets so it fits the screens properly
+
+  @function themed($key) {
+    @return map-get($theme-map, $key);
+  }
+  
+  @mixin mobile {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+  @mixin tablet {
+    @media (max-width: 960px) {
+      @content;
+    }
+  }

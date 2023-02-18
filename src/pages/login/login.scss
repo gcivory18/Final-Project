@@ -1,0 +1,82 @@
+// This is all the scss for the login page! I styled various components and added a background image
+
+.login{
+height: 100vh;
+background-color: rgb(10, 232, 232);
+display: flex;
+align-items: center;
+justify-content: center;
+
+    .card{
+        width: 50%;
+        display: flex;
+        background-color: white;
+        border-radius: 10px;
+        min-height: 600px;
+        overflow: hidden;
+
+        .left{
+            flex: 1;
+            background: url("https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") center;
+            background-size: cover;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            color: rgb(252, 252, 10);
+
+            h1{
+                font-size: 100px;
+                line-height: 100px;
+            }
+
+            span{
+                font-size: 14px;
+            }
+
+            button{
+                width: 50%;
+                border: none;
+                background-color: white;
+                color: rgb(30, 15, 243);
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+        }
+        .right{
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            justify-content: center;
+        
+            h1{
+                color: lightcoral;
+            }
+
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                input{
+                    border: none;
+                    border-bottom: 1px solid lightcoral;
+                    padding: 20px 10px;
+                }
+                button{
+                    width: 60px;
+                    padding: 10px;
+                    border: none;
+                    background-color: lightcoral;
+                    color: white;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}

@@ -1,39 +1,39 @@
 import "./share.scss";
+
+import { AuthContext } from "../../context/authContext";
 // import Image from "../../assets/img.png";
 // import Map from "../../assets/map.png";
-import Friends from "../../images/Friends img.jpeg"
+import Friends from "../../images/Friends img.jpeg";
 import { useContext } from "react";
-import { AuthContext } from "../../context/authContext";
 
 const Share = () => {
-
-  const {currentUser} = useContext(AuthContext)
+  const { currentUser } = useContext(AuthContext);
   return (
     <div className="share">
       <div className="container">
         <div className="top">
-          <img
-            src={currentUser.profilePic}
-            alt=""
+          <img src={`${currentUser?.profilePic}`} alt="" />
+          <input
+            type="text"
+            placeholder={`What's on your mind ${currentUser?.name}?`}
           />
-          <input type="text" placeholder={`What's on your mind ${currentUser.name}?`} />
         </div>
         <hr />
         <div className="bottom">
           <div className="left">
-            <input type="file" id="file" style={{display:"none"}} />
+            <input type="file" id="file" style={{ display: "none" }} />
             <label htmlFor="file">
               <div className="item">
-                <img src={Image} alt="" />
+                <img src={`${Image}`} alt="" />
                 <span>Add Image</span>
               </div>
             </label>
             <div className="item">
-              <img src={Map} alt="" />
+              <img src={`${Map}`} alt="" />
               <span>Add Place</span>
             </div>
             <div className="item">
-              <img src={Friends} alt="" />
+              <img src={`${Friends}`} alt="" />
               <span>Tag Friends</span>
             </div>
           </div>

@@ -1,18 +1,26 @@
-import Login from "./pages/login/login";
-import Register from "./pages/register/register";
-import { createBrowserRouter, RouterProvider, Route, Outlet, Navigate } from "react-router-dom";
-import Navbar from "./components/navbar/navbar";
-import Leftbar from "./components/leftbar/leftbar";
-import Rightbar from "./components/rightbar/rightbar";
-import Home from "./pages/home/home";
-import Profile from "./pages/profile/profile";
 import "./style.scss";
-import { useContext} from "react";
-import { DarkModeContext } from "./context/darkModeContext";
+
+import {
+  Navigate,
+  Outlet,
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+
 import { AuthContext } from "./context/authContext";
+import { DarkModeContext } from "./context/darkModeContext";
+import Home from "./pages/home/home";
+import Leftbar from "./components/leftbar/leftbar";
+import Login from "./pages/login/login";
+import Navbar from "./components/navbar/navbar";
+import Profile from "./pages/profile/profile";
+import Register from "./pages/register/register";
+import Rightbar from "./components/rightbar/rightbar";
+import { useContext } from "react";
 
 function App() {
-  const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
   const { darkMode } = useContext(DarkModeContext);
 
@@ -32,9 +40,9 @@ function App() {
   };
 
   const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
-      return <Navigate to="/login" />;
-    }
+    // if (!currentUser) {
+    //   return <Navigate to="/login" />;
+    // }
 
     return children;
   };
